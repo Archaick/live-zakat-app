@@ -1,0 +1,85 @@
+.references-section {
+    padding: 20px;
+    text-align: left; /* Align text from left to right */
+}
+
+.references-section h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.75rem;
+    color: #333;
+}
+
+.references-section h3 {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.25rem;
+    color: #555;
+}
+
+.references-section p {
+    font-family: 'Arial', sans-serif;
+    font-size: 1rem;
+    color: #666;
+}
+
+.references-section a {
+    font-family: 'Arial', sans-serif;
+    color: #e63946;
+    transition: color 0.3s;
+    text-decoration: none;
+    flex-wrap: nowrap;
+}
+
+.references-section a:hover {
+    color: #333;
+}
+
+.external-link-icon {
+    padding-left: 0.3rem;
+    font-size: 0.875rem;
+}
+
+.reference-icon {
+    font-size: 2rem;
+    color: #1c2c3d;
+}
+
+@media (max-width: 768px) {
+    .references-section h1 {
+        font-size: 1.5rem;
+    }
+    
+    .references-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .reference-icon {
+        font-size: 1.75rem;
+    }
+
+    .references-section p,
+    .references-section a {
+        font-size: 0.95rem; /* Adjusted font size */
+    }
+}
+
+@media (max-width: 576px) {
+    .references-section h1 {
+        font-size: 1.25rem;
+    }
+
+    .references-section h3 {
+        font-size: 0.9rem; /* Slightly reduced font size */
+    }
+
+    .references-section p {
+        font-size: 0.85rem; /* Slightly reduced font size */
+    }
+
+    .references-section a {
+        font-size: 0.85rem; /* Slightly reduced font size */
+    }
+
+    .reference-icon {
+        font-size: 1.5rem;
+    }
+}
