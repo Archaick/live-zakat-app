@@ -9,7 +9,7 @@ function FAQComponent() {
     return (
         <div className="faq-container" id="faq">
             <h2 className="faq-heading">FAQ</h2>
-            <Accordion defaultActiveKey="0"> 
+            <Accordion> 
                 <Accordion.Item eventKey="0">
                     <Accordion.Header>
                         <span className="icon"><FontAwesomeIcon icon={faCalendarAlt} /></span> 
