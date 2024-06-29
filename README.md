@@ -1,5 +1,8 @@
 # Goal of the project
 
+Link of the site:
+https://zakat-calculator-app.web.app/
+
 This project aims to provide an estimate for the calculation of Zakat, though it is not guaranteed to be 100% accurate. While live values are used, they may not be as precise as current market values obtainable through paid APIs. The primary role of this project is for educational purposes.
 
 # Next Updates
