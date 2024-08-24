@@ -1,85 +1,99 @@
 .references-section {
-    padding: 20px;
-    text-align: left; /* Align text from left to right */
+    padding: 60px 20px; /* Increased padding for a more spacious feel */
+    background-color: #f8f9fa; /* Light background for contrast */
 }
 
-.references-section h1 {
-    font-family: 'Arial', sans-serif;
-    font-size: 1.75rem;
-    color: #333;
+.references-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center; /* Center the cards */
 }
 
-.references-section h3 {
-    font-family: 'Arial', sans-serif;
-    font-size: 1.25rem;
-    color: #555;
+.reference-card {
+    background-color: #ffffff; /* Clean white background for the cards */
+    padding: 30px;
+    border-radius: 16px; /* More rounded corners for a modern look */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
+    text-align: center;
+    flex-basis: calc(45% - 40px); /* Slightly narrower for balance */
+    max-width: calc(45% - 40px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
 }
 
-.references-section p {
-    font-family: 'Arial', sans-serif;
-    font-size: 1rem;
-    color: #666;
-}
-
-.references-section a {
-    font-family: 'Arial', sans-serif;
-    color: #e63946;
-    transition: color 0.3s;
-    text-decoration: none;
-    flex-wrap: nowrap;
-}
-
-.references-section a:hover {
-    color: #333;
-}
-
-.external-link-icon {
-    padding-left: 0.3rem;
-    font-size: 0.875rem;
+.reference-card:hover {
+    transform: translateY(-10px); /* Lift effect on hover */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
 }
 
 .reference-icon {
-    font-size: 2rem;
-    color: #1c2c3d;
+    font-size: 3rem;
+    color: #009bff; 
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1000;
+}
+
+.reference-icon::before {
+    content: '';
+    position: absolute;
+    height: 90px;
+    width: 120px;
+    background-color: #e8f3fc7d;
+    right: 48%;
+}
+
+.reference-card h3 {
+    font-size: 1.5rem; 
+    color: #333333;
+    margin-bottom: 15px;
+}
+
+.reference-card p {
+    font-size: 1rem; 
+    color: #666666;
+    margin-bottom: 20px;
+    line-height: 1.6; 
+}
+
+.references-section a {
+    font-size: 1rem;
+    color: #009bff;
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth color transition */
+    display: inline-flex; /* Align icon with text */
+    align-items: center;
+}
+
+.references-section ul {
+    list-style-type: none; /* Remove bullet points */
+    padding-left: 0; /* Remove left padding */
+    margin: 0;
+}
+
+.references-section li {
+    margin-bottom: 10px; 
+}
+
+.references-section a:hover {
+    color: #0056b3;
+    text-decoration: none;
+}
+
+.external-link-icon-src {
+    height: 1.3rem;
+    width: 1.3rem;
+    padding-left: 8px; 
 }
 
 @media (max-width: 768px) {
-    .references-section h1 {
-        font-size: 1.5rem;
-    }
-    
-    .references-section h3 {
-        font-size: 1.1rem;
+    .references-grid {
+        flex-direction: column;
+        gap: 30px; /* Adjust gap for smaller screens */
     }
 
-    .reference-icon {
-        font-size: 1.75rem;
-    }
-
-    .references-section p,
-    .references-section a {
-        font-size: 0.95rem; /* Adjusted font size */
-    }
-}
-
-@media (max-width: 576px) {
-    .references-section h1 {
-        font-size: 1.25rem;
-    }
-
-    .references-section h3 {
-        font-size: 0.9rem; /* Slightly reduced font size */
-    }
-
-    .references-section p {
-        font-size: 0.85rem; /* Slightly reduced font size */
-    }
-
-    .references-section a {
-        font-size: 0.85rem; /* Slightly reduced font size */
-    }
-
-    .reference-icon {
-        font-size: 1.5rem;
+    .reference-card {
+        flex-basis: 100%; /* Full width on mobile */
+        max-width: 100%;
     }
 }
