@@ -10,7 +10,7 @@
 
 .navbar-brand-custom {
     margin-left: 2rem;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 .navbar-toggler {
@@ -32,7 +32,7 @@
 .navbar-nav {
     width: auto;
     margin-right: 2rem;
-    font-weight: 700;
+    font-weight: 500;
 }
 
 .navbar-brand {
@@ -92,12 +92,9 @@
     color: #555;
 }
 
-.offcanvas-title h5 {
-    font-weight: 900;
-}
 
 .nav-link {
-    font-weight: 700;
+    font-weight: 600;
 }
 
 @media (max-width: 350px) {
