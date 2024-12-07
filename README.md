@@ -1,4 +1,4 @@
-# Goal of the project
+# Goal of the project Test
 
 Link of the site:
 https://zakat-calculator-app.web.app/
