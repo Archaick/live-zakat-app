@@ -1,0 +1,213 @@
+.zakah-calc-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.style-link {
+    color: #e63946;
+    transition: color 0.3s;
+    align-items: center;
+    text-decoration: none;
+}
+
+.external-link-icon {
+    height: 1rem;
+    width: 0.625rem;
+}
+
+.style-link:hover,
+.external-link-icon:hover {
+    color: #333;
+}
+
+.zakah-calc-container p,
+.zakah-calc-container label,
+.zakah-calc-container input[type='number'],
+.zakah-calc-container select {
+    font-size: 1rem;
+}
+
+.number-input {
+    font-size: 1rem;
+}
+
+.calc-submit {
+    margin-top: 16px;
+    border: none;
+}
+
+.calc-submit:hover {
+    background-color: #e63946;
+}
+
+.modal-content {
+    padding: 16px;
+}
+
+@media (max-width: 768px) {
+    .zakah-calc-section {
+        padding: 8px;
+    }
+}
+
+.zakah-calc-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../assets/images/calculate-bg.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.3;
+    z-index: -1;
+    background-attachment: fixed;
+}
+
+.zakah-calc-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(42, 39, 237, 0.4);
+    z-index: -1;
+}
+
+.zakah-calc-wrapper {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 600px) {
+    .zakah-calc-wrapper {
+        max-width: 340px;
+        padding: 16px;
+    }
+
+    .external-link-icon {
+        height: 0.8rem;
+        width: 0.5rem;
+    }
+
+    .zakah-calc-container {
+        padding: 10px;
+    }
+
+    .zakah-calc-container h1 {
+        font-size: 1.2rem;
+    }
+
+    .zakah-calc-container p,
+    .zakah-calc-container input[type='number'],
+    .zakah-calc-container select,
+    .zakah-calc-container label {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .zakah-calc-wrapper {
+        padding: 8px;
+        max-width: 300px;
+    }
+
+    .zakah-calc-container h1 {
+        font-size: 1rem;
+    }
+
+    .zakah-calc-container p,
+    .zakah-calc-container label,
+    .zakah-calc-container input[type='number'],
+    .zakah-calc-container select {
+        font-size: 0.75rem;
+    }
+
+    .external-link-icon {
+        height: 0.7rem;
+        width: 0.4rem;
+    }
+
+    .calc-submit {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+    }
+
+    .modal-content {
+        font-size: 0.75rem;
+        padding: 8px;
+    }
+
+    .modal-title {
+        font-size: 1rem;
+    }
+
+    .modal-body p {
+        font-size: 0.75rem;
+    }
+}
+
+.zakah-calc-container {
+    position: relative;
+    z-index: 1;
+    padding: 8px;
+}
+
+.zakah-calc-container h1 {
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    .modal-content {
+        font-size: 0.875rem;
+        padding: 8px;
+    }
+
+    .modal-title {
+        font-size: 1.25rem;
+    }
+
+    .modal-body p {
+        font-size: 0.875rem;
+    }
+}
+
+.additional-fields,
+.standard-options {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease-in-out, opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.additional-fields.show,
+.standard-options.show {
+    max-height: 500px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.zakah-amount {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.9em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

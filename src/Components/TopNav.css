@@ -1,0 +1,111 @@
+.custom-navbar {
+    background-color: white;
+    color: #333; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 3rem;
+}
+
+.navbar-brand-custom {
+    margin-left: 2rem;
+    font-weight: 600;
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%2851, 51, 51, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.custom-toggler:hover, 
+.custom-toggler:focus, 
+.custom-toggler:active {
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+
+.navbar-nav {
+    width: auto;
+    margin-right: 2rem;
+    font-weight: 500;
+}
+
+.navbar-brand {
+    color: #333;
+}
+
+.navbar-nav .nav-link {
+    color: #333;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #555;
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #333;
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.navbar-nav .nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.offcanvas-style .offcanvas-body {
+    padding: 20px;
+}
+
+.offcanvas-style .nav {
+    width: 100%;
+}
+
+.offcanvas-style .nav-link {
+    color: #333;
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.offcanvas-style .nav-link:last-child {
+    border-bottom: none;
+}
+
+.offcanvas-style .nav-link:hover {
+    background-color: #f8f9fa;
+    color: #555;
+}
+
+
+.nav-link {
+    font-weight: 600;
+}
+
+@media (max-width: 350px) {
+    .custom-navbar {
+        padding: 0.5rem 1rem;
+    }
+    .navbar-brand-custom {
+        margin-left: 1rem;
+        font-size: 1rem;
+    }
+    .custom-toggler {
+        font-size: 0.875rem;
+    }
+}

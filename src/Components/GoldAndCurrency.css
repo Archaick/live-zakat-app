@@ -1,0 +1,27 @@
+/* Global styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    scroll-behavior: smooth;
+}
+
+/* GoldAndCurrency.css */
+.gold-currency-section {    
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loader-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
