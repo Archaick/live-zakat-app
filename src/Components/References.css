@@ -1,99 +1,72 @@
 .references-section {
-    padding: 60px 20px; /* Increased padding for a more spacious feel */
-    background-color: #f8f9fa; /* Light background for contrast */
+  padding: 40px;
+  background-color: #f7f7f7;
+  color: #323232;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.references-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: center; /* Center the cards */
+.custom-tab {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 18px 12px;
+  color: #323232;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  cursor: pointer;
 }
 
-.reference-card {
-    background-color: #ffffff; /* Clean white background for the cards */
-    padding: 30px;
-    border-radius: 16px; /* More rounded corners for a modern look */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
-    text-align: center;
-    flex-basis: calc(45% - 40px); /* Slightly narrower for balance */
-    max-width: calc(45% - 40px);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+.custom-tab[data-active] {
+  color: #ec2d24;
+  background-color: #f7f7f7;
+  border-right: 4px solid #ec2d24;
 }
 
-.reference-card:hover {
-    transform: translateY(-10px); /* Lift effect on hover */
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15); /* Deeper shadow on hover */
+.custom-tab:hover {
+  background-color: #ec2d24;
+  color: #fff;
 }
 
-.reference-icon {
-    font-size: 3rem;
-    color: #009bff; 
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 1000;
+.custom-panel {
+  padding: 20px;
+  font-size: 1rem;
+  line-height: 1.5;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 724px;
+  max-height: 384px;
+  overflow-y: auto;
+  text-align: center;
 }
 
-.reference-icon::before {
-    content: '';
-    position: absolute;
-    height: 90px;
-    width: 120px;
-    background-color: #e8f3fc7d;
-    right: 48%;
+.reference-content p {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: #323232;
 }
 
-.reference-card h3 {
-    font-size: 1.5rem; 
-    color: #333333;
-    margin-bottom: 15px;
+.reference-content ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.reference-card p {
-    font-size: 1rem; 
-    color: #666666;
-    margin-bottom: 20px;
-    line-height: 1.6; 
+.reference-content li {
+  margin-bottom: 10px;
 }
 
-.references-section a {
-    font-size: 1rem;
-    color: #009bff;
-    text-decoration: none; /* Remove underline */
-    transition: color 0.3s ease; /* Smooth color transition */
-    display: inline-flex; /* Align icon with text */
-    align-items: center;
+.reference-content a {
+  color: #ec2d24;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.references-section ul {
-    list-style-type: none; /* Remove bullet points */
-    padding-left: 0; /* Remove left padding */
-    margin: 0;
-}
-
-.references-section li {
-    margin-bottom: 10px; 
-}
-
-.references-section a:hover {
-    color: #0056b3;
-    text-decoration: none;
-}
-
-.external-link-icon-src {
-    height: 1.3rem;
-    width: 1.3rem;
-    padding-left: 8px; 
-}
-
-@media (max-width: 768px) {
-    .references-grid {
-        flex-direction: column;
-        gap: 30px; /* Adjust gap for smaller screens */
-    }
-
-    .reference-card {
-        flex-basis: 100%; /* Full width on mobile */
-        max-width: 100%;
-    }
+.reference-content a:hover {
+  color: #323232;
 }

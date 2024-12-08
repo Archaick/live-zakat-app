@@ -1,78 +1,84 @@
 .footer-section {
-    background-color: #f8f9fa;
-    padding: 20px 0;
-    border-top: 1px solid #e7e7e7;
+  background-color: #323232;
+  padding: 20px 0;
+  border-top: 1px solid #474747;
+  color: white; /* Font color updated */
 }
 
-.footer-section h5, .footer-section h6 {
-    font-family: 'Arial', sans-serif;
-    color: #333;
-    font-size: 1.25rem; /* Reduced font size */
-    margin-bottom: 1rem;
+.footer-section h5,
+.footer-section h6 {
+  color: white;
+  font-size: 1.25rem; /* Reduced font size */
+  margin-bottom: 1rem;
 }
 
-.footer-section p, .footer-section a, .footer-section ul li {
-    font-family: 'Arial', sans-serif;
-    color: #666;
-    font-size: 0.875rem; /* Reduced font size */
-    text-align: left;
+.footer-section p,
+.footer-section a,
+.footer-section ul li {
+  color: white;
+  font-size: 0.875rem; /* Reduced font size */
+  text-align: left;
+}
+
+.footer-section a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .footer-section a:hover {
-    color: #0056b3;
-    text-decoration: none;
+  color: #ec2d24; /* Updated hover color */
 }
 
 .footer-section ul {
-    list-style: none;
-    padding-left: 0;
+  list-style: none;
+  padding-left: 0;
 }
 
 .footer-section ul li {
-    margin-bottom: 0.5rem;
-    display: flex;
-    justify-content: center;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
 }
 
 .text-decoration-none {
-    padding-left: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  padding-left: 6px;
+  display: flex;
+  align-items: center;
 }
 
 .footer-section .fa {
-    margin-right: 0.5rem;
+  margin-right: 0.5rem;
+  color: white; /* Icon color updated */
+}
+
+.footer-section .fa:hover {
+  color: #ec2d24; /* Hover effect for icons */
+}
+
+.sec-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 @media (max-width: 768px) {
-    .footer-section {
-        text-align: center;
-    }
-    
-    .footer-section .col-md-6 {
-        margin-bottom: 1rem;
-    }
+  .footer-section {
+    text-align: center;
+  }
 
-    .footer-section ul li {
-        justify-content: center;
-    }
+  .footer-section .col-md-6 {
+    margin-bottom: 1rem;
+  }
 
-    .footer-section p, .footer-section a {
-        text-align: center;
-    }
-}
+  .footer-section ul li {
+    justify-content: center;
+  }
 
-.footer-section h6 {
-    font-family: 'Arial', sans-serif;
-    color: #333;
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-}
-
-.footer-section ul li {
-    font-family: 'Arial', sans-serif;
-    color: #666;
-    font-size: 0.875rem;
+  .footer-section p,
+  .footer-section a {
+    text-align: center;
+  }
 }
