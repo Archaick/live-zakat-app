@@ -84,7 +84,7 @@ function References() {
         {referencesData.map((reference, index) => (
           <Tabs.Panel key={index} value={`${index}`} className="custom-panel">
             <div className="reference-content">
-              <p>{reference.icon}</p>
+              <p className="ref-icon">{reference.icon}</p>
               <p>{reference.description}</p>
               {reference.links && (
                 <ul>

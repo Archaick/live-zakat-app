@@ -17,11 +17,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #d1d1d1;
+  background: linear-gradient(
+    135deg,
+    /* Dark navy with transparency */ /* Dark navy with transparency */
+      rgba(43, 21, 19, 0.6),
+    /* Green with transparency */ rgba(26, 26, 46, 0.8),
+    /* Dark navy with transparency */ rgba(43, 21, 19, 0.6)
+      /* Red with transparency */
+  );
+  opacity: 0.8;
+  color: #ffffff;
   text-align: center;
   padding: 12px;
-  
+}
+
+.carousel-caption::before {
+  content: "";
+  position: absolute;
 }
 
 .carousel-caption h3 {
@@ -35,10 +47,10 @@
 
 @media (max-width: 768px) {
   .carousel-caption h3 {
-      font-size: 1.3rem;
+    font-size: 1.3rem;
   }
   .carousel-caption p {
-      font-size: 0.9rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -46,15 +58,15 @@
   .carousel-caption p {
     font-size: 0.7rem;
     width: 284px;
-}
+  }
 }
 
 @media (max-width: 364px) {
   .carousel-caption h3 {
-      font-size: 1.2rem;
+    font-size: 1.2rem;
   }
   .carousel-caption p {
-      font-size: 0.7rem;
-      width: 224px;
+    font-size: 0.7rem;
+    width: 224px;
   }
 }

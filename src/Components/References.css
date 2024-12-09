@@ -9,6 +9,7 @@
   align-items: center;
 }
 
+/* Tabs Styling */
 .custom-tab {
   font-size: 1rem;
   font-weight: bold;
@@ -32,13 +33,12 @@
   color: #fff;
 }
 
+/* Panels Styling */
 .custom-panel {
   padding: 20px;
   font-size: 1rem;
   line-height: 1.5;
-  background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   max-width: 724px;
   max-height: 384px;
   overflow-y: auto;
@@ -69,4 +69,58 @@
 
 .reference-content a:hover {
   color: #323232;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .references-section {
+    padding: 20px;
+  }
+
+  .custom-tab {
+    font-size: 0.9rem;
+    padding: 14px 10px;
+  }
+
+  .custom-panel {
+    font-size: 0.9rem;
+    padding: 16px;
+    max-width: 100%; /* Full width on smaller screens */
+    max-height: 300px;
+  }
+
+  .reference-content p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .reference-content a {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-tab {
+    font-size: 0.8rem;
+    padding: 12px 8px;
+  }
+
+  .custom-panel {
+    font-size: 0.8rem;
+    padding: 12px;
+    max-height: 250px;
+  }
+
+  .reference-content p {
+    font-size: 0.8rem;
+  }
+
+  .reference-content a {
+    font-size: 0.75rem;
+  }
+
+  .references-section h3 {
+    font-size: 1.2rem;
+    color: #323232;
+  }
 }
