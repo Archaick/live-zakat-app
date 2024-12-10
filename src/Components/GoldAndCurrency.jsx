@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Oval } from 'react-loader-spinner';
 import ZakahCalc from './ZakahCalc';
 import './GoldAndCurrency.css';
+import { Loader } from '@mantine/core';
 
 function GoldAndCurrency() {
     const [goldData, setGoldData] = useState(null);
     const [silverData, setSilverData] = useState(null);
     const [currencyData, setCurrencyData] = useState(null);
+    // the above are props
     const [retry, setRetry] = useState(false);
 
     const fetchGoldData = async () => {
@@ -85,18 +86,7 @@ function GoldAndCurrency() {
                 <ZakahCalc goldData={goldData} currencyData={currencyData} silverData={silverData} />
             ) : (
                 <div className="loader-wrapper">
-                    <Oval 
-                        height={60} 
-                        width={60} 
-                        color="#4fa94d" 
-                        wrapperStyle={{}} 
-                        wrapperClass="" 
-                        visible={true} 
-                        ariaLabel='oval-loading' 
-                        secondaryColor="#4fa94d" 
-                        strokeWidth={2} 
-                        strokeWidthSecondary={2} 
-                    />
+                    <Loader color="red" size="xl" type="bars" />
                 </div>
             )}
         </div>
