@@ -1,8 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import {
   faEnvelope,
   faCoins,
@@ -91,6 +90,18 @@ function Footer() {
                 </a>
               </li>
             </ul>
+          </Col>
+        </Row>
+        <Row className="text-center mt-4">
+          <Col>
+            <a
+              href="https://ko-fi.com/saeed96182"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="buy-coffee-link"
+            >
+              ☕ Buy Me a Coffee
+            </a>
           </Col>
         </Row>
         <Row className="text-center mt-2">

@@ -64,6 +64,26 @@
   text-align: center;
 }
 
+.buy-coffee-link {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 15px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #ec2d24; /* Ko-fi red color */
+  border-radius: 25px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.buy-coffee-link:hover {
+  background-color: #ff5c5c; /* Lighter hover color */
+  color: #ffffff;
+  transform: scale(1.05);
+  text-shadow: 0px 0px 10px rgba(255, 92, 92, 0.6);
+}
+
 @media (max-width: 768px) {
   .footer-section {
     text-align: center;
