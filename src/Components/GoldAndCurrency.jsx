@@ -47,16 +47,17 @@ function GoldAndCurrency() {
         if (currencyData) return; // Don't fetch if data is already fetched
         try {
             const response = await axios.get('https://latest.currency-api.pages.dev/v1/currencies/usd.json');
-            const newCurrencyData = {
-                ...response.data.usd,
-                USD: response.data.usd.usd,
-                IDR: response.data.usd.idr,
-                SAR: response.data.usd.sar,
-                date: response.data.date
-            };
+    
+            // Dynamically populate currencyData with all currencies from the response
+            const newCurrencyData = Object.keys(response.data.usd).reduce((acc, key) => {
+                acc[key.toUpperCase()] = response.data.usd[key];
+                return acc;
+            }, {});
+    
+            newCurrencyData.date = response.data.date; // Add the date field
             setCurrencyData(newCurrencyData);
         } catch (error) {
-            console.error('Error at fetching currency', error);
+            console.error('Error fetching currency', error);
             setRetry(true);
         }
     };
