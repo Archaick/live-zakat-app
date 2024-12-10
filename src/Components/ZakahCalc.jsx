@@ -4,6 +4,7 @@ import { Modal, Form, Button } from "react-bootstrap";
 import "./ZakahCalc.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import Select from "react-select";
 
 function ZakahCalc({ goldData, currencyData, silverData }) {
   const [oneYear, setOneYear] = useState(false);
@@ -150,20 +151,23 @@ function ZakahCalc({ goldData, currencyData, silverData }) {
                   {/* Currency Dropdown */}
                   <Form.Group>
                     <Form.Label>Choose the currency</Form.Label>
-                    <Form.Control
-                      as="select"
-                      value={selectedCurrency}
-                      onChange={handleCurrencyChange}
-                    >
-                      {Object.keys(currencyData).map((currencyCode) => (
-                        <option
-                          key={currencyCode}
-                          value={currencyCode.toLowerCase()}
-                        >
-                          {currencyCode.toUpperCase()}
-                        </option>
-                      ))}
-                    </Form.Control>
+                    <Select
+                      value={{
+                        value: selectedCurrency,
+                        label: selectedCurrency.toUpperCase(),
+                      }}
+                      onChange={(selectedOption) =>
+                        setSelectedCurrency(selectedOption.value)
+                      }
+                      options={Object.keys(currencyData).map(
+                        (currencyCode) => ({
+                          value: currencyCode.toLowerCase(),
+                          label: currencyCode.toUpperCase(),
+                        })
+                      )}
+                      placeholder="Search for a currency..."
+                      isSearchable
+                    />
                   </Form.Group>
 
                   {/* Standard Dropdown */}
