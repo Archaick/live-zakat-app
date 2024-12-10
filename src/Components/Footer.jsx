@@ -95,7 +95,7 @@ function Footer() {
         </Row>
         <Row className="text-center mt-2">
           <Col>
-            <p>&copy; {new Date().getFullYear()} Version 1.1</p>
+            <p>&copy; {new Date().getFullYear()} Version 1.2</p>
           </Col>
         </Row>
       </Container>

@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Modal, Form, Button } from "react-bootstrap";
 import "./ZakahCalc.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import Select from "react-select";
 
 function ZakahCalc({ goldData, currencyData, silverData }) {
@@ -11,7 +9,7 @@ function ZakahCalc({ goldData, currencyData, silverData }) {
   const [showModal, setShowModal] = useState(false);
   const [zakahAmount, setZakahAmount] = useState("");
   const [isAmountValid, setIsAmountValid] = useState(false);
-  const [selectedCurrency, setSelectedCurrency] = useState("usd");
+  const [selectedCurrency, setSelectedCurrency] = useState("");
   const [standard, setStandard] = useState("");
   const [showStandardOptions, setShowStandardOptions] = useState(false);
 
@@ -102,8 +100,6 @@ function ZakahCalc({ goldData, currencyData, silverData }) {
     return nisabValue >= 0.01 ? nisabValue.toFixed(2) : "0.01"; // Minimum display value
   };
 
-  const handleCurrencyChange = (e) => setSelectedCurrency(e.target.value);
-
   const nisab =
     standard === "gold"
       ? goldNisab()
@@ -127,12 +123,8 @@ function ZakahCalc({ goldData, currencyData, silverData }) {
                 className="style-link"
               >
                 lunar
-                <FontAwesomeIcon
-                  icon={faExternalLinkAlt}
-                  className="external-link-icon"
-                />
-              </a>{" "}
-              year?
+              </a>
+              {" "}year?
             </Form.Label>
             <Form.Control
               as="select"
