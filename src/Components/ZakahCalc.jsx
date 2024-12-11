@@ -141,6 +141,7 @@ function ZakahCalc({ goldData, currencyData, silverData }) {
                   {/* Currency Dropdown */}
                   <Form.Group>
                     <Form.Label>Choose the currency</Form.Label>
+
                     <Select
                       value={{
                         value: selectedCurrency,
@@ -165,6 +166,11 @@ function ZakahCalc({ goldData, currencyData, silverData }) {
                       )}
                       placeholder="Search for a currency..."
                       isSearchable
+                      styles={{
+                        menuPortal: (base) => ({ ...base, zIndex: 9999 }), // Ensure it appears on top
+                      }}
+                      menuPortalTarget={document.body} // Renders dropdown outside of the parent container
+                      menuPosition="absolute" // Ensures menu is positioned absolutely
                     />
                   </Form.Group>
 
