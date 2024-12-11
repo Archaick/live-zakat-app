@@ -62,7 +62,7 @@ const referencesData = [
 
 function References() {
   return (
-    <div className="references-section">
+    <div className="references-section" id="references">
       <Center mt={70}>
         <h3>References</h3>
       </Center>
