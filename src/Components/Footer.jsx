@@ -27,7 +27,7 @@ function Footer() {
             <h6 className="mt-4">Upcoming Updates</h6>
             <ul className="list-unstyled">
               <li>Adding silver standard for zakat ✅</li>
-              <li>Expansion in language and currency support⌛</li>
+              <li>Expansion in&nbsp;<s>language</s>&nbsp;and currency support✅</li>
               <li>Refining of the project page⌛</li>
             </ul>
           </Col>
