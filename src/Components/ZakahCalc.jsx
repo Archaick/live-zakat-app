@@ -143,6 +143,7 @@ function ZakahCalc({ goldData, currencyData, silverData }) {
                     <Form.Label>Choose the currency</Form.Label>
 
                     <Select
+                      className="currency-dropdown"
                       value={{
                         value: selectedCurrency,
                         label: currencyData?.[selectedCurrency.toUpperCase()]

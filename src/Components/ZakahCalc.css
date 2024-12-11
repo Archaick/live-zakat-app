@@ -192,6 +192,9 @@
   .modal-body p {
     font-size: 0.875rem;
   }
+  .currency-dropdown {
+    font-size: 0.8rem;
+  }
 }
 
 .additional-fields,
