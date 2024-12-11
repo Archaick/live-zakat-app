@@ -72,13 +72,12 @@ function ZakahCalc({ goldData, currencyData, silverData }) {
 
   const goldNisab = () => {
     const pricePerGram = parseFloat(goldData.price_per_gram);
-    const currencyRate = parseFloat(
-      currencyData[selectedCurrency.toUpperCase()]
-    );
+    const currencyInfo = currencyData[selectedCurrency.toUpperCase()];
+    const currencyRate = currencyInfo ? parseFloat(currencyInfo.rate) : null;
 
     if (!currencyRate || currencyRate <= 0) {
       console.error("Invalid currency rate:", currencyRate);
-      return null; // Return null for invalid rates
+      return null;
     }
 
     const nisabValue = pricePerGram * currencyRate * 85;
@@ -87,13 +86,12 @@ function ZakahCalc({ goldData, currencyData, silverData }) {
 
   const silverNisab = () => {
     const pricePerGram = parseFloat(silverData.silver_per_gram);
-    const currencyRate = parseFloat(
-      currencyData[selectedCurrency.toUpperCase()]
-    );
+    const currencyInfo = currencyData[selectedCurrency.toUpperCase()];
+    const currencyRate = currencyInfo ? parseFloat(currencyInfo.rate) : null;
 
     if (!currencyRate || currencyRate <= 0) {
       console.error("Invalid currency rate:", currencyRate);
-      return null; // Return null for invalid rates
+      return null;
     }
 
     const nisabValue = pricePerGram * currencyRate * 595;
@@ -123,8 +121,8 @@ function ZakahCalc({ goldData, currencyData, silverData }) {
                 className="style-link"
               >
                 lunar
-              </a>
-              {" "}year?
+              </a>{" "}
+              year?
             </Form.Label>
             <Form.Control
               as="select"
@@ -146,15 +144,23 @@ function ZakahCalc({ goldData, currencyData, silverData }) {
                     <Select
                       value={{
                         value: selectedCurrency,
-                        label: selectedCurrency.toUpperCase(),
+                        label: currencyData?.[selectedCurrency.toUpperCase()]
+                          ? `${
+                              currencyData[selectedCurrency.toUpperCase()].name
+                            } (${selectedCurrency.toUpperCase()})`
+                          : selectedCurrency.toUpperCase(),
                       }}
                       onChange={(selectedOption) =>
                         setSelectedCurrency(selectedOption.value)
                       }
-                      options={Object.keys(currencyData).map(
+                      options={Object.keys(currencyData || {}).map(
                         (currencyCode) => ({
                           value: currencyCode.toLowerCase(),
-                          label: currencyCode.toUpperCase(),
+                          label: currencyData[currencyCode.toUpperCase()]
+                            ? `${
+                                currencyData[currencyCode.toUpperCase()].name
+                              } (${currencyCode.toUpperCase()})`
+                            : currencyCode.toUpperCase(),
                         })
                       )}
                       placeholder="Search for a currency..."
