@@ -65,7 +65,6 @@
   height: 100%;
   background: url("../assets/images/calculate-bg.jpg") no-repeat center center;
   background-size: cover;
-  background-attachment: fixed;
   opacity: 0.7;
   z-index: -1;
 }
@@ -80,9 +79,9 @@
   background: linear-gradient(
     135deg,
     /* Dark navy with transparency */ /* Dark navy with transparency */
-      rgba(43, 21, 19, 0.6),
-    /* Green with transparency */ rgba(26, 26, 46, 0.8),
-    /* Dark navy with transparency */ rgba(43, 21, 19, 0.6)
+      rgba(43, 21, 19),
+    /* Green with transparency */ rgba(26, 26, 46),
+    /* Dark navy with transparency */ rgba(43, 21, 19)
       /* Red with transparency */
   );
   opacity: 0.9;

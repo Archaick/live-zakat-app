@@ -23,6 +23,9 @@ First sldie Leonardo Thomas from Pixabay https://pixabay.com/photos/abu-dhabi-gr
 Second slide Mohamed Hussein from Pixabay https://pixabay.com/photos/mosque-russia-travel-sky-building-6808592/
 Third slide Photo by Meruyert Gonullu from Pexels: https://www.pexels.com/photo/muslim-symbol-of-moon-and-star-on-street-6243769/
 
+Background Calculator:
+Nick115 from Pixabay https://pixabay.com/photos/coin-still-life-metal-chain-old-5347681/
+
 ## APIs Used
 
 - **Metals:**  
@@ -33,5 +36,5 @@ Third slide Photo by Meruyert Gonullu from Pexels: https://www.pexels.com/photo/
   [Exchange Rate API by Fawaz Ahmed](https://github.com/fawazahmed0/exchange-api)  
   Offers exchange rates for various currencies.
 
-# Version 1.1
+# Version 1.2
 
