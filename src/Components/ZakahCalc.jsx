@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Modal, Form, Button } from "react-bootstrap";
 import "./ZakahCalc.css";
 import Select from "react-select";
+import { NumericFormat } from "react-number-format";
 
 function ZakahCalc({ goldData, currencyData, silverData }) {
   const [oneYear, setOneYear] = useState(false);
@@ -36,19 +37,10 @@ function ZakahCalc({ goldData, currencyData, silverData }) {
     setIsAmountValid(false);
   };
 
-  const formatNumber = (value) => {
-    return value.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  };
-
-  const handleAmountChange = (e) => {
-    const value = e.target.value.replace(/,/g, "");
-    if (!isNaN(value) && value.trim() !== "") {
-      setZakahAmount(formatNumber(value));
-      setIsAmountValid(true);
-    } else {
-      setZakahAmount(value);
-      setIsAmountValid(false);
-    }
+  const handleAmountChange = (values) => {
+    const { floatValue } = values; // Extract raw numeric value
+    setZakahAmount(floatValue || ""); // Update with numeric value or empty string
+    setIsAmountValid(!!floatValue); // Validate if a number is entered
   };
 
   const handleCalculate = () => {
@@ -57,16 +49,6 @@ function ZakahCalc({ goldData, currencyData, silverData }) {
     } else {
       alert("Enter a valid amount");
       setZakahAmount("");
-    }
-  };
-
-  const handleKeyDown = (e) => {
-    const invalidChars = ["-", "+", "e", "."];
-    if (invalidChars.includes(e.key)) {
-      e.preventDefault();
-    }
-    if (e.key === "Enter") {
-      handleCalculate();
     }
   };
 
@@ -135,152 +117,129 @@ function ZakahCalc({ goldData, currencyData, silverData }) {
           </Form.Group>
 
           <div className={`additional-fields ${oneYear ? "show" : ""}`}>
-            <div className={`additional-fields ${oneYear ? "show" : ""}`}>
-              {oneYear && (
-                <>
-                  {/* Currency Dropdown */}
-                  <Form.Group>
-                    <Form.Label>Choose the currency</Form.Label>
-
-                    <Select
-                      className="currency-dropdown"
-                      value={{
-                        value: selectedCurrency,
-                        label: currencyData?.[selectedCurrency.toUpperCase()]
+            {oneYear && (
+              <>
+                <Form.Group>
+                  <Form.Label>Choose the currency</Form.Label>
+                  <Select
+                    className="currency-dropdown"
+                    value={{
+                      value: selectedCurrency,
+                      label: currencyData?.[selectedCurrency.toUpperCase()]
+                        ? `${
+                            currencyData[selectedCurrency.toUpperCase()].name
+                          } (${selectedCurrency.toUpperCase()})`
+                        : selectedCurrency.toUpperCase(),
+                    }}
+                    onChange={(selectedOption) =>
+                      setSelectedCurrency(selectedOption.value)
+                    }
+                    options={Object.keys(currencyData || {}).map(
+                      (currencyCode) => ({
+                        value: currencyCode.toLowerCase(),
+                        label: currencyData[currencyCode.toUpperCase()]
                           ? `${
-                              currencyData[selectedCurrency.toUpperCase()].name
-                            } (${selectedCurrency.toUpperCase()})`
-                          : selectedCurrency.toUpperCase(),
-                      }}
-                      onChange={(selectedOption) =>
-                        setSelectedCurrency(selectedOption.value)
-                      }
-                      options={Object.keys(currencyData || {}).map(
-                        (currencyCode) => ({
-                          value: currencyCode.toLowerCase(),
-                          label: currencyData[currencyCode.toUpperCase()]
-                            ? `${
-                                currencyData[currencyCode.toUpperCase()].name
-                              } (${currencyCode.toUpperCase()})`
-                            : currencyCode.toUpperCase(),
-                        })
-                      )}
-                      placeholder="Search for a currency..."
-                      isSearchable
-                      styles={{
-                        menuPortal: (base) => ({ ...base, zIndex: 9999 }), // Ensure it appears on top
-                      }}
-                      menuPortalTarget={document.body} // Renders dropdown outside of the parent container
-                      menuPosition="absolute" // Ensures menu is positioned absolutely
-                    />
-                  </Form.Group>
+                              currencyData[currencyCode.toUpperCase()].name
+                            } (${currencyCode.toUpperCase()})`
+                          : currencyCode.toUpperCase(),
+                      })
+                    )}
+                    placeholder="Search for a currency..."
+                    isSearchable
+                    styles={{
+                      menuPortal: (base) => ({ ...base, zIndex: 9999 }),
+                    }}
+                    menuPortalTarget={document.body}
+                    menuPosition="absolute"
+                  />
+                </Form.Group>
 
-                  {/* Standard Dropdown */}
-                  <Form.Group>
-                    <Form.Label>Select the Standard</Form.Label>
-                    <Form.Control
-                      as="select"
-                      onChange={handleStandardChange}
-                      value={standard}
+                <Form.Group>
+                  <Form.Label>Select the Standard</Form.Label>
+                  <Form.Control
+                    as="select"
+                    onChange={handleStandardChange}
+                    value={standard}
+                  >
+                    <option value="">Select...</option>
+                    <option value="gold">Gold Standard</option>
+                    <option value="silver">Silver Standard</option>
+                  </Form.Control>
+                </Form.Group>
+
+                {showStandardOptions && (
+                  <>
+                    <Form.Group>
+                      <Form.Label>
+                        Input the total amount of your net assets
+                      </Form.Label>
+                      <NumericFormat
+                        value={zakahAmount}
+                        thousandSeparator=","
+                        decimalScale={2}
+                        allowNegative={false}
+                        fixedDecimalScale
+                        onValueChange={handleAmountChange}
+                        className="form-control"
+                      />
+                    </Form.Group>
+                    <Button
+                      variant="dark"
+                      onClick={handleCalculate}
+                      className="calc-submit"
                     >
-                      <option value="">Select...</option>
-                      <option value="gold">Gold Standard</option>
-                      <option value="silver">Silver Standard</option>
-                    </Form.Control>
-                  </Form.Group>
-
-                  {/* Amount Input */}
-                  {showStandardOptions && (
-                    <>
-                      <Form.Group>
-                        <Form.Label>
-                          Input the total amount of your net assets
-                        </Form.Label>
-                        <Form.Control
-                          type="text"
-                          onChange={handleAmountChange}
-                          required
-                          className="number-input"
-                          onKeyDown={handleKeyDown}
-                          value={zakahAmount}
-                        />
-                      </Form.Group>
-                      <Button
-                        variant="dark"
-                        onClick={handleCalculate}
-                        className="calc-submit"
-                      >
-                        Calculate
-                      </Button>
-                    </>
-                  )}
-                </>
-              )}
-            </div>
+                      Calculate
+                    </Button>
+                  </>
+                )}
+              </>
+            )}
           </div>
 
           <Modal show={showModal} onHide={handleClose}>
             <Modal.Header closeButton>
               <Modal.Title>Result</Modal.Title>
             </Modal.Header>
-
             <Modal.Body>
-              {Number(zakahAmount.replace(/,/g, "")) < Number(nisab) ? (
+              {Number(zakahAmount) < Number(nisab) ? (
                 <div>
                   <p>
                     💵Your financial holdings of {zakahAmount}{" "}
                     {selectedCurrency.toUpperCase()} do not meet the minimum
                     nisab limit; zakat is not obligatory.
                   </p>
-                  <p>
-                    📉The current minimum nisab based on your selected currency
-                    and metal type is{" "}
-                    <span className="zakah-amount">
-                      {(nisab * 1).toLocaleString("en-US", {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
-                      })}{" "}
-                      {selectedCurrency.toUpperCase()}.
-                    </span>
-                  </p>
                 </div>
               ) : (
                 <div>
                   <p>
-                    💵Your financial holdings of{" "}
-                    {Number(zakahAmount.replace(/,/g, "")).toLocaleString(
-                      "en-US",
-                      { minimumFractionDigits: 2, maximumFractionDigits: 2 }
-                    )}{" "}
-                    {selectedCurrency.toUpperCase()} have reached the Nisab,
-                    your zakah is:
+                    💵Your financial holdings of {zakahAmount}{" "}
+                    {selectedCurrency.toUpperCase()} have reached the Nisab.
+                  </p>
+                  <p>
+                    Your zakah is{" "}
                     <span className="zakah-amount">
-                      {(
-                        Number(zakahAmount.replace(/,/g, "")) / 40
-                      ).toLocaleString("en-US", {
+                      {(Number(zakahAmount) / 40).toLocaleString("en-US", {
                         minimumFractionDigits: 2,
                         maximumFractionDigits: 2,
-                      })}{" "}
-                      {selectedCurrency.toUpperCase()}
-                    </span>
-                  </p>
-                  <p>
-                    🪙Metal currency last updated: {goldData.updatedAtReadable}
-                  </p>
-                  <p>🕛Currency exchange last update: {currencyData.date}</p>
-                  <p>
-                    📈Current minimum Nisab based on your currency selection and
-                    metal type is{" "}
-                    {(nisab * 1).toLocaleString("en-US", {
-                      minimumFractionDigits: 2,
-                      maximumFractionDigits: 2,
-                    })}{" "}
-                    {selectedCurrency.toUpperCase()}
+                      })}
+                    </span>{" "}
+                    {selectedCurrency.toUpperCase()}.
                   </p>
                 </div>
               )}
-            </Modal.Body>
 
+              <p>🪙Metal currency last updated: {goldData.updatedAtReadable}</p>
+              <p>🕛Currency exchange last update: {currencyData.date}</p>
+              <p>
+                📈Current minimum Nisab based on your currency selection and
+                metal type is{" "}
+                {(nisab * 1).toLocaleString("en-US", {
+                  minimumFractionDigits: 2,
+                  maximumFractionDigits: 2,
+                })}{" "}
+                {selectedCurrency.toUpperCase()}
+              </p>
+            </Modal.Body>
             <Modal.Footer>
               <Button variant="dark" onClick={handleClose}>
                 Close
